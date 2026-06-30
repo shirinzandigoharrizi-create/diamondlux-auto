@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --gold-300: #E3C04A;
+  --gold-400: #D4AF37;
+  --gold-500: #C9A227;
+  --cream-50: #F2EFE9;
+  --gray-400: #9A9A9A;
+  --gray-500: #8a8a86;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0A0A0A;
+  color: #F2EFE9;
+  font-family: 'Jost', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: #7d7d78;
+  opacity: 1;
+}
+
+input:focus {
+  outline: none;
+  border-color: #C9A227 !important;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.16) !important;
+}
+
+.dlx-svc {
+  transition: all 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.dlx-svc:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 162, 39, 0.55) !important;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.5), 0 0 24px rgba(201,162,39,0.13) !important;
+}
+
+.dlx-learn {
+  transition: color 0.24s;
+}
+.dlx-learn:hover {
+  color: #E3C04A !important;
+}
+
+.dlx-outline {
+  transition: all 0.24s;
+}
+.dlx-outline:hover {
+  border-color: #E3C04A !important;
+  color: #E3C04A !important;
+}
+
+.dlx-gold {
+  transition: all 0.24s;
+}
+.dlx-gold:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 0 26px rgba(201, 162, 39, 0.4) !important;
+}
