@@ -29,9 +29,9 @@ export default function HeroSection() {
         sizes="100vw"
       />
 
-      {/* ── Desktop: transparent hotspots + quote panel overlay ── */}
+      {/* ── Desktop/Tablet: transparent hotspots + quote panel overlay ── */}
       {/* These are inside ScaleStage so pixel positions are correct at 1280px design units */}
-      <div className="hidden lg:block">
+      <div className="hidden sm:block">
         <button onClick={scrollToTop}  aria-label="Home"            style={hs(32,  10, 272, 104)} />
         <button onClick={scrollToTop}  aria-label="Home"            style={hs(386, 38, 44,  34)}  />
         <button onClick={scrollToServices} aria-label="Services"    style={hs(460, 38, 70,  34)}  />
@@ -46,8 +46,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ── Mobile / Tablet: quote panel stacked below hero ── */}
-      <div className="lg:hidden" style={{ padding: "20px 16px 24px" }}>
+      {/* ── Mobile only: quote panel stacked below hero ── */}
+      <div className="sm:hidden" style={{ padding: "20px 16px 24px" }}>
         <QuotePanel />
       </div>
     </section>

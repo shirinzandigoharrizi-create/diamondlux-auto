@@ -117,8 +117,8 @@ export default function ServicesSection() {
       id="services"
       style={{ position: "relative", background: "#0A0A0A", paddingBottom: "40px" }}
     >
-      {/* ── Desktop layout (inside 1280px ScaleStage) ── */}
-      <div className="hidden lg:block" style={{ paddingTop: "12px", paddingLeft: "28px", paddingRight: "28px" }}>
+      {/* ── Desktop/Tablet layout (inside 1280px ScaleStage) ── */}
+      <div className="hidden sm:block" style={{ paddingTop: "12px", paddingLeft: "28px", paddingRight: "28px" }}>
         <div style={{ maxWidth: "953px" }}>
           <div
             style={{
@@ -166,8 +166,8 @@ export default function ServicesSection() {
         </div>
       </div>
 
-      {/* ── Mobile / Tablet layout ── */}
-      <div className="lg:hidden" style={{ padding: "32px 16px 0" }}>
+      {/* ── Mobile only layout ── */}
+      <div className="sm:hidden" style={{ padding: "32px 16px 0" }}>
         <div
           style={{
             textAlign: "center",
