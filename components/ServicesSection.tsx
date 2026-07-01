@@ -28,23 +28,101 @@ const services = [
   },
 ];
 
+function ServiceCard({ svc, imgHeight }: { svc: typeof services[0]; imgHeight: number }) {
+  return (
+    <div
+      className="dlx-svc"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        background: "#0d0c0b",
+        border: "1px solid rgba(201,162,39,0.24)",
+        borderRadius: "8px",
+        overflow: "hidden",
+      }}
+    >
+      <div style={{ position: "relative", width: "100%", height: `${imgHeight}px` }}>
+        <Image
+          src={svc.img}
+          alt={svc.title}
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="(max-width: 1024px) 50vw, 200px"
+        />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          padding: "16px 14px",
+          flex: 1,
+        }}
+      >
+        <div
+          style={{
+            fontSize: "14px",
+            fontWeight: 600,
+            letterSpacing: "0.05em",
+            color: "#F2EFE9",
+            textTransform: "uppercase",
+          }}
+        >
+          {svc.title}
+        </div>
+        <div
+          style={{
+            marginTop: "9px",
+            fontSize: "12px",
+            lineHeight: 1.5,
+            color: "#9A9A9A",
+            fontWeight: 300,
+          }}
+        >
+          {svc.desc}
+        </div>
+        <button
+          className="dlx-learn"
+          style={{
+            marginTop: "auto",
+            paddingTop: "15px",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            background: "transparent",
+            border: "none",
+            color: "#D4AF37",
+            fontFamily: "var(--font-jost), sans-serif",
+            fontSize: "11px",
+            fontWeight: 600,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            cursor: "pointer",
+          }}
+        >
+          Learn More
+          <svg width="14" height="11" viewBox="0 0 24 18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 9h18M14 3l6 6-6 6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function ServicesSection() {
   return (
     <section
       id="services"
-      style={{
-        position: "relative",
-        background: "#0A0A0A",
-        padding: "0 0 40px",
-      }}
+      style={{ position: "relative", background: "#0A0A0A", paddingBottom: "40px" }}
     >
-      {/* Desktop layout */}
-      <div className="hidden lg:block" style={{ paddingTop: "12px", paddingLeft: "28px" }}>
-        <div style={{ width: "953px" }}>
+      {/* ── Desktop layout (inside 1280px ScaleStage) ── */}
+      <div className="hidden lg:block" style={{ paddingTop: "12px", paddingLeft: "28px", paddingRight: "28px" }}>
+        <div style={{ maxWidth: "953px" }}>
           <div
             style={{
               textAlign: "center",
-              width: "953px",
               fontFamily: "var(--font-jost), sans-serif",
               fontSize: "21px",
               fontWeight: 500,
@@ -58,108 +136,37 @@ export default function ServicesSection() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(5,1fr)",
+              gridTemplateColumns: "repeat(5, 1fr)",
               gap: "17px",
               marginTop: "13px",
             }}
           >
             {services.map((svc) => (
-              <div
-                key={svc.title}
-                className="dlx-svc"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  background: "#0d0c0b",
-                  border: "1px solid rgba(201,162,39,0.24)",
-                  borderRadius: "8px",
-                  overflow: "hidden",
-                }}
-              >
-                <div style={{ position: "relative", width: "100%", height: "108px" }}>
-                  <Image
-                    src={svc.img}
-                    alt={svc.title}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="200px"
-                  />
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    textAlign: "center",
-                    padding: "16px 14px",
-                    flex: 1,
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      letterSpacing: "0.05em",
-                      color: "#F2EFE9",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {svc.title}
-                  </div>
-                  <div
-                    style={{
-                      marginTop: "9px",
-                      fontSize: "12px",
-                      lineHeight: 1.5,
-                      color: "#9A9A9A",
-                      fontWeight: 300,
-                    }}
-                  >
-                    {svc.desc}
-                  </div>
-                  <button
-                    className="dlx-learn"
-                    style={{
-                      marginTop: "auto",
-                      paddingTop: "15px",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "8px",
-                      background: "transparent",
-                      border: "none",
-                      color: "#D4AF37",
-                      fontFamily: "var(--font-jost), sans-serif",
-                      fontSize: "11px",
-                      fontWeight: 600,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Learn More
-                    <svg width="14" height="11" viewBox="0 0 24 18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 9h18M14 3l6 6-6 6" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
+              <ServiceCard key={svc.title} svc={svc} imgHeight={108} />
             ))}
           </div>
         </div>
 
-        {/* Diamond decoration */}
-        <div style={{ position: "absolute", top: "37px", right: "58px" }}>
+        {/* Diamond decoration — absolute within the section */}
+        <div
+          style={{
+            position: "absolute",
+            top: "37px",
+            right: "58px",
+            pointerEvents: "none",
+          }}
+        >
           <Image
             src="/assets3/diamond.png"
             alt=""
             width={170}
             height={170}
-            style={{ height: "auto", pointerEvents: "none" }}
+            style={{ height: "auto" }}
           />
         </div>
       </div>
 
-      {/* Mobile / Tablet layout */}
+      {/* ── Mobile / Tablet layout ── */}
       <div className="lg:hidden" style={{ padding: "32px 16px 0" }}>
         <div
           style={{
@@ -175,92 +182,16 @@ export default function ServicesSection() {
         >
           Our Services
         </div>
+        {/* 1 col on mobile, 2 cols on tablet */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(280px, 100%), 1fr))",
             gap: "16px",
           }}
         >
           {services.map((svc) => (
-            <div
-              key={svc.title}
-              className="dlx-svc"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                background: "#0d0c0b",
-                border: "1px solid rgba(201,162,39,0.24)",
-                borderRadius: "8px",
-                overflow: "hidden",
-              }}
-            >
-              <div style={{ position: "relative", width: "100%", height: "160px" }}>
-                <Image
-                  src={svc.img}
-                  alt={svc.title}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  textAlign: "center",
-                  padding: "16px 14px",
-                  flex: 1,
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    letterSpacing: "0.05em",
-                    color: "#F2EFE9",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {svc.title}
-                </div>
-                <div
-                  style={{
-                    marginTop: "9px",
-                    fontSize: "12px",
-                    lineHeight: 1.5,
-                    color: "#9A9A9A",
-                    fontWeight: 300,
-                  }}
-                >
-                  {svc.desc}
-                </div>
-                <button
-                  className="dlx-learn"
-                  style={{
-                    marginTop: "15px",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    background: "transparent",
-                    border: "none",
-                    color: "#D4AF37",
-                    fontFamily: "var(--font-jost), sans-serif",
-                    fontSize: "11px",
-                    fontWeight: 600,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    cursor: "pointer",
-                  }}
-                >
-                  Learn More
-                  <svg width="14" height="11" viewBox="0 0 24 18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 9h18M14 3l6 6-6 6" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+            <ServiceCard key={svc.title} svc={svc} imgHeight={160} />
           ))}
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function HeroSection() {
 
   return (
     <section style={{ position: "relative" }}>
-      {/* Hero image */}
+      {/* Hero baked image */}
       <Image
         src="/assets3/hero.png"
         alt="DiamondLux Auto — luxury cars and a superyacht at golden hour"
@@ -29,142 +29,42 @@ export default function HeroSection() {
         sizes="100vw"
       />
 
-      {/* Nav hotspots — desktop only */}
+      {/* ── Desktop: transparent hotspots + quote panel overlay ── */}
+      {/* These are inside ScaleStage so pixel positions are correct at 1280px design units */}
       <div className="hidden lg:block">
-        {/* Logo / Home */}
-        <button
-          onClick={scrollToTop}
-          aria-label="Home"
-          style={{
-            position: "absolute",
-            left: "32px",
-            top: "10px",
-            width: "272px",
-            height: "104px",
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-          }}
-        />
-        {/* Home nav link */}
-        <button
-          onClick={scrollToTop}
-          aria-label="Home"
-          style={{
-            position: "absolute",
-            left: "386px",
-            top: "38px",
-            width: "44px",
-            height: "34px",
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-          }}
-        />
-        {/* Services */}
-        <button
-          onClick={scrollToServices}
-          aria-label="Services"
-          style={{
-            position: "absolute",
-            left: "460px",
-            top: "38px",
-            width: "70px",
-            height: "34px",
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-          }}
-        />
-        {/* Packages */}
-        <button
-          aria-label="Packages"
-          style={{
-            position: "absolute",
-            left: "558px",
-            top: "38px",
-            width: "76px",
-            height: "34px",
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-          }}
-        />
-        {/* Our Work */}
-        <button
-          aria-label="Our Work"
-          style={{
-            position: "absolute",
-            left: "662px",
-            top: "38px",
-            width: "78px",
-            height: "34px",
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-          }}
-        />
-        {/* About Us */}
-        <button
-          aria-label="About Us"
-          style={{
-            position: "absolute",
-            left: "768px",
-            top: "38px",
-            width: "78px",
-            height: "34px",
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-          }}
-        />
-        {/* Contact */}
-        <button
-          aria-label="Contact"
-          style={{
-            position: "absolute",
-            left: "870px",
-            top: "38px",
-            width: "72px",
-            height: "34px",
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-          }}
-        />
-        {/* Book Appointment CTA */}
-        <button
-          onClick={scrollToTop}
-          aria-label="Book Appointment"
-          style={{
-            position: "absolute",
-            left: "1024px",
-            top: "30px",
-            width: "234px",
-            height: "48px",
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-          }}
-        />
+        <button onClick={scrollToTop}  aria-label="Home"            style={hs(32,  10, 272, 104)} />
+        <button onClick={scrollToTop}  aria-label="Home"            style={hs(386, 38, 44,  34)}  />
+        <button onClick={scrollToServices} aria-label="Services"    style={hs(460, 38, 70,  34)}  />
+        <button aria-label="Packages"                               style={hs(558, 38, 76,  34)}  />
+        <button aria-label="Our Work"                               style={hs(662, 38, 78,  34)}  />
+        <button aria-label="About Us"                               style={hs(768, 38, 78,  34)}  />
+        <button aria-label="Contact"                                style={hs(870, 38, 72,  34)}  />
+        <button onClick={scrollToTop}  aria-label="Book Appointment" style={hs(1024,30, 234, 48)} />
 
-        {/* Quote Panel — desktop */}
-        <div
-          style={{
-            position: "absolute",
-            top: "92px",
-            left: "988px",
-            width: "235px",
-          }}
-        >
+        <div style={{ position: "absolute", top: 92, left: 988, width: 235 }}>
           <QuotePanel />
         </div>
       </div>
 
-      {/* Mobile quote panel — shown below hero image on small screens */}
-      <div className="lg:hidden" style={{ padding: "24px 16px" }}>
+      {/* ── Mobile / Tablet: quote panel stacked below hero ── */}
+      <div className="lg:hidden" style={{ padding: "20px 16px 24px" }}>
         <QuotePanel />
       </div>
     </section>
   );
+}
+
+/** Transparent absolute hotspot button style */
+function hs(left: number, top: number, width: number, height: number): React.CSSProperties {
+  return {
+    position: "absolute",
+    left,
+    top,
+    width,
+    height,
+    background: "transparent",
+    border: "none",
+    cursor: "pointer",
+    padding: 0,
+  };
 }

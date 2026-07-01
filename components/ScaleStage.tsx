@@ -8,10 +8,9 @@ export default function ScaleStage({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     function fit() {
       if (!stageRef.current) return;
+      // zoom is layout-aware (unlike transform: scale) — matches original prototype
       const z = Math.min(1, window.innerWidth / 1280);
-      stageRef.current.style.transform = `scale(${z})`;
-      stageRef.current.style.transformOrigin = "top left";
-      stageRef.current.parentElement!.style.height = `${stageRef.current.scrollHeight * z}px`;
+      (stageRef.current.style as CSSStyleDeclaration & { zoom: string }).zoom = String(z);
     }
     fit();
     window.addEventListener("resize", fit);
@@ -19,8 +18,11 @@ export default function ScaleStage({ children }: { children: React.ReactNode }) 
   }, []);
 
   return (
-    <div style={{ position: "relative", width: "100%" }}>
-      <div ref={stageRef} style={{ width: "1280px", background: "#0A0A0A" }}>
+    <div style={{ display: "flex", justifyContent: "center", background: "#0A0A0A" }}>
+      <div
+        ref={stageRef}
+        style={{ width: "1280px", background: "#0A0A0A", flexShrink: 0 }}
+      >
         {children}
       </div>
     </div>
