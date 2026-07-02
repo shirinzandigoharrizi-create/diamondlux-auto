@@ -1,19 +1,17 @@
-import Image from "next/image";
-
 const stats = [
   { value: "1,200+", label: "Vehicles Detailed" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "8 yrs", label: "In Business" },
-  { value: "4.9 ★", label: "Average Rating" },
+  { value: "98%",    label: "Client Satisfaction" },
+  { value: "8 yrs",  label: "In Business" },
+  { value: "4.9 ★",  label: "Average Rating" },
 ];
 
 const gallery = [
-  { src: "/assets3/card-exterior.png", label: "Exterior Detailing", tag: "Paint Correction", wide: true },
-  { src: "/assets3/card-ceramic.png",  label: "Ceramic Coating",    tag: "9H Ceramic",      wide: false },
-  { src: "/assets3/card-interior.png", label: "Interior Detail",    tag: "Full Interior",   wide: false },
-  { src: "/assets3/card-ppf.png",      label: "Paint Protection",   tag: "PPF Full Front",  wide: false },
-  { src: "/assets3/card-yacht.png",    label: "Yacht Detailing",    tag: "Marine Detail",   wide: false },
-  { src: "/assets3/card-ceramic.png",  label: "New Car Protection", tag: "Ceramic + PPF",   wide: true  },
+  { label: "Exterior Detailing",   tag: "Paint Correction", wide: true,  icon: "◈" },
+  { label: "Ceramic Coating",      tag: "9H Ceramic",       wide: false, icon: "◆" },
+  { label: "Interior Detail",      tag: "Full Interior",    wide: false, icon: "◇" },
+  { label: "Paint Protection",     tag: "PPF Full Front",   wide: false, icon: "◈" },
+  { label: "Yacht Detailing",      tag: "Marine Detail",    wide: false, icon: "◆" },
+  { label: "New Car Protection",   tag: "Ceramic + PPF",    wide: true,  icon: "◇" },
 ];
 
 export default function GallerySectionHome() {
@@ -28,14 +26,7 @@ export default function GallerySectionHome() {
     >
       {/* Heading */}
       <div style={{ textAlign: "center", marginBottom: "56px" }}>
-        <div
-          style={{
-            width: "36px",
-            height: "1px",
-            background: "#D4AF37",
-            margin: "0 auto 24px",
-          }}
-        />
+        <div style={{ width: "36px", height: "1px", background: "#D4AF37", margin: "0 auto 24px" }} />
         <h2
           style={{
             fontFamily: "'Bodoni Moda', serif",
@@ -73,7 +64,6 @@ export default function GallerySectionHome() {
           border: "1px solid rgba(212,175,55,0.12)",
           borderRadius: "3px",
           overflow: "hidden",
-          marginBottom: "40px",
           maxWidth: "900px",
           margin: "0 auto 48px",
         }}
@@ -81,11 +71,7 @@ export default function GallerySectionHome() {
         {stats.map((s) => (
           <div
             key={s.label}
-            style={{
-              background: "#0d0d0d",
-              padding: "28px 20px",
-              textAlign: "center",
-            }}
+            style={{ background: "#0d0d0d", padding: "28px 20px", textAlign: "center" }}
           >
             <div
               style={{
@@ -114,12 +100,11 @@ export default function GallerySectionHome() {
         ))}
       </div>
 
-      {/* Gallery grid */}
+      {/* Gallery grid — CSS-only cards */}
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gridTemplateRows: "auto auto",
           gap: "12px",
           maxWidth: "1152px",
           margin: "0 auto",
@@ -131,24 +116,33 @@ export default function GallerySectionHome() {
             style={{
               gridColumn: item.wide ? "span 2" : "span 1",
               position: "relative",
-              overflow: "hidden",
+              height: item.wide ? "300px" : "220px",
               borderRadius: "3px",
-              border: "1px solid rgba(255,255,255,0.05)",
+              border: "1px solid rgba(212,175,55,0.15)",
+              overflow: "hidden",
+              background: "linear-gradient(135deg, #111110 0%, #0c0c0b 50%, #0f0f0e 100%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <Image
-              src={item.src}
-              alt={item.label}
-              width={800}
-              height={500}
+            {/* Corner accents */}
+            <div style={{ position: "absolute", top: "12px", left: "12px", width: "20px", height: "20px", borderTop: "1px solid rgba(212,175,55,0.4)", borderLeft: "1px solid rgba(212,175,55,0.4)" }} />
+            <div style={{ position: "absolute", bottom: "12px", right: "12px", width: "20px", height: "20px", borderBottom: "1px solid rgba(212,175,55,0.4)", borderRight: "1px solid rgba(212,175,55,0.4)" }} />
+
+            {/* Center icon */}
+            <div
               style={{
-                width: "100%",
-                height: item.wide ? "300px" : "220px",
-                objectFit: "cover",
-                display: "block",
-                filter: "brightness(0.82)",
+                fontSize: item.wide ? "52px" : "40px",
+                color: "rgba(212,175,55,0.12)",
+                userSelect: "none",
+                pointerEvents: "none",
+                lineHeight: 1,
               }}
-            />
+            >
+              {item.icon}
+            </div>
+
             {/* Label overlay */}
             <div
               style={{
@@ -156,9 +150,8 @@ export default function GallerySectionHome() {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                background:
-                  "linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 100%)",
-                padding: "36px 18px 16px",
+                background: "linear-gradient(0deg, rgba(8,8,8,0.95) 0%, transparent 100%)",
+                padding: "36px 18px 18px",
               }}
             >
               <div

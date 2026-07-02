@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const values = [
   { label: "Precision", desc: "No surface is overlooked. Every millimetre matters." },
   { label: "Integrity",  desc: "We say what we'll do — then we do exactly that." },
@@ -35,73 +33,71 @@ export default function AboutSectionHome() {
           margin: "0 auto 88px",
         }}
       >
-        {/* Image */}
-        <div style={{ position: "relative" }}>
-          <Image
-            src="/assets3/card-exterior.png"
-            alt="DiamondLux workshop"
-            width={560}
-            height={400}
-            style={{
-              width: "100%",
-              height: "400px",
-              objectFit: "cover",
-              borderRadius: "3px",
-              display: "block",
-              filter: "brightness(0.88)",
-            }}
-          />
-          {/* Corner accent */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: "-16px",
-              right: "-16px",
-              width: "100px",
-              height: "100px",
-              border: "1px solid rgba(212,175,55,0.25)",
-              borderRadius: "2px",
-              zIndex: -1,
-            }}
-          />
-          {/* Stat badge */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: "24px",
-              left: "24px",
-              background: "rgba(10,10,10,0.92)",
-              border: "1px solid rgba(212,175,55,0.4)",
-              borderRadius: "3px",
-              padding: "16px 22px",
-              backdropFilter: "blur(4px)",
-            }}
-          >
+        {/* Stats panel — CSS only */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "16px",
+            alignContent: "start",
+          }}
+        >
+          {[
+            { value: "8+",     label: "Years in Business",   sub: "Est. 2016" },
+            { value: "1,200+", label: "Vehicles Detailed",   sub: "And counting" },
+            { value: "98%",    label: "Client Satisfaction",  sub: "5-star average" },
+            { value: "5",      label: "Specialist Services",  sub: "Under one roof" },
+          ].map((s) => (
             <div
+              key={s.label}
               style={{
-                fontFamily: "'Bodoni Moda', serif",
-                fontSize: "34px",
-                fontWeight: 700,
-                color: "#D4AF37",
-                lineHeight: 1,
+                background: "#0d0d0d",
+                border: "1px solid rgba(212,175,55,0.15)",
+                borderRadius: "3px",
+                padding: "32px 24px",
+                position: "relative",
+                overflow: "hidden",
               }}
             >
-              8+
+              {/* Top gold line accent */}
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, #D4AF37 0%, transparent 100%)" }} />
+              <div
+                style={{
+                  fontFamily: "'Bodoni Moda', serif",
+                  fontSize: "48px",
+                  fontWeight: 600,
+                  color: "#D4AF37",
+                  lineHeight: 1,
+                  marginBottom: "10px",
+                }}
+              >
+                {s.value}
+              </div>
+              <div
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  color: "#C8C4BC",
+                  letterSpacing: "0.08em",
+                  marginBottom: "4px",
+                }}
+              >
+                {s.label}
+              </div>
+              <div
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontSize: "10px",
+                  fontWeight: 300,
+                  color: "#4a4a4a",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                {s.sub}
+              </div>
             </div>
-            <div
-              style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: "10px",
-                fontWeight: 300,
-                color: "#9A9A9A",
-                letterSpacing: "0.14em",
-                marginTop: "4px",
-                textTransform: "uppercase",
-              }}
-            >
-              Years in Business
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* Text */}
