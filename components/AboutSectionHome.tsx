@@ -143,9 +143,8 @@ export default function AboutSectionHome() {
             }}
           >
             DiamondLux Auto was founded with a single belief: the vehicles
-            entrusted to us deserve more than a wash and vacuum. They deserve a
-            meticulous, knowledgeable approach once reserved for concours
-            preparation and factory-level care.
+            entrusted to us deserve a meticulous, knowledgeable approach —
+            the kind once reserved for concours preparation and factory-level care.
           </p>
           <p
             style={{

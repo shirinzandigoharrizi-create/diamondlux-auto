@@ -181,7 +181,7 @@ export default function AboutPage() {
             lineHeight: 1.9,
             margin: "0 0 20px",
           }}>
-            DiamondLux Auto was founded with a single belief: that the vehicles entrusted to us deserve more than a wash and vacuum. They deserve a meticulous, knowledgeable approach — the kind once reserved for concours preparation and factory-level care.
+            DiamondLux Auto was founded with a single belief: that the vehicles entrusted to us deserve a meticulous, knowledgeable approach — the kind once reserved for concours preparation and factory-level care.
           </p>
           <p style={{
             fontFamily: "'Jost', sans-serif",

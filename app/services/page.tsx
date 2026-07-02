@@ -29,7 +29,7 @@ const services = [
     description:
       "We treat your paint with the same precision a watchmaker applies to a movement. A multi-stage decontamination and hand-polish process removes swirls, oxidation, and micro-marring — revealing depth and gloss you may not have seen since the car left the factory.",
     features: [
-      "Two-bucket hand wash with pH-neutral soap",
+      "Two-bucket hand clean with pH-neutral solution",
       "Clay bar decontamination to remove bonded surface deposits",
       "Iron & tar removal for brake-dust contamination",
       "Single- or multi-stage machine polish for swirl correction",

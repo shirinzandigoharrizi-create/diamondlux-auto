@@ -4,10 +4,9 @@ const tiers = [
   {
     tier: "Silver",
     tagline: "The professional introduction to premium care.",
-    price: "From $299",
     accent: "#9EAAB4",
     features: [
-      "Exterior hand wash & dry",
+      "Exterior decontamination & dry",
       "Wheel & tire cleaning",
       "Interior vacuum & wipe-down",
       "Interior & exterior glass",
@@ -19,7 +18,6 @@ const tiers = [
   {
     tier: "Gold",
     tagline: "Deep restoration for vehicles that deserve more.",
-    price: "From $599",
     accent: "#D4AF37",
     featured: true,
     features: [
@@ -37,7 +35,6 @@ const tiers = [
   {
     tier: "Diamond",
     tagline: "Total transformation. Absolute perfection.",
-    price: "From $1,299",
     accent: "#E8E0D0",
     features: [
       "Everything in Gold",
@@ -201,14 +198,16 @@ export default function PackagesSectionHome() {
 
             <div
               style={{
-                fontFamily: "'Bodoni Moda', serif",
-                fontSize: "34px",
-                fontWeight: 600,
-                color: pkg.accent,
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "10px",
+                fontWeight: 500,
+                letterSpacing: "0.2em",
+                color: "rgba(212,175,55,0.4)",
+                textTransform: "uppercase",
                 marginBottom: "20px",
               }}
             >
-              {pkg.price}
+              Pricing on request
             </div>
 
             <div
@@ -313,8 +312,7 @@ export default function PackagesSectionHome() {
           letterSpacing: "0.03em",
         }}
       >
-        Prices are starting rates. Final quote provided after vehicle assessment.
-        Exotic & heavily soiled vehicles may be priced differently.
+        All packages are tailored to your vehicle. Contact us for a personalised quote.
       </p>
     </section>
   );

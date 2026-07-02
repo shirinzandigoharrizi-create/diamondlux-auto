@@ -6,15 +6,14 @@ const packages = [
   {
     tier: "Silver",
     tagline: "The perfect introduction to professional detailing.",
-    price: "From $299",
     accent: "#9EAAB4",
     features: [
-      "Exterior hand wash & dry",
+      "Exterior decontamination & dry",
       "Wheel & tire cleaning",
       "Interior vacuum & wipe-down",
       "Glass cleaning (in & out)",
       "Tyre dressing",
-      "Door jamb wipe",
+      "Door jamb detail",
     ],
     excluded: [
       "Paint correction",
@@ -28,7 +27,6 @@ const packages = [
   {
     tier: "Gold",
     tagline: "A thorough restoration for vehicles that deserve more.",
-    price: "From $599",
     accent: "#D4AF37",
     featured: true,
     features: [
@@ -51,7 +49,6 @@ const packages = [
   {
     tier: "Diamond",
     tagline: "Total transformation. No compromise.",
-    price: "From $1,299",
     accent: "#E8E0D0",
     features: [
       "Everything in Gold",
@@ -206,25 +203,17 @@ export default function PackagesPage() {
                 {pkg.tagline}
               </p>
 
-              {/* Price */}
-              <div style={{
-                fontFamily: "'Bodoni Moda', serif",
-                fontSize: "36px",
-                fontWeight: 600,
-                color: pkg.accent,
-                marginBottom: "4px",
-              }}>
-                {pkg.price}
-              </div>
+              {/* Pricing placeholder */}
               <div style={{
                 fontFamily: "'Jost', sans-serif",
-                fontSize: "11px",
-                fontWeight: 300,
-                color: "#555",
-                letterSpacing: "0.08em",
+                fontSize: "10px",
+                fontWeight: 500,
+                letterSpacing: "0.2em",
+                color: "rgba(212,175,55,0.4)",
+                textTransform: "uppercase",
                 marginBottom: "28px",
               }}>
-                Pricing varies by vehicle size & condition
+                Pricing on request
               </div>
 
               <div style={{ height: "1px", background: "rgba(255,255,255,0.06)", marginBottom: "24px" }} />
@@ -331,8 +320,7 @@ export default function PackagesPage() {
           color: "#555",
           marginTop: "32px",
         }}>
-          All prices are starting prices. Final quote provided after vehicle assessment.
-          Exotic, large-format and heavily soiled vehicles may be priced differently.
+          All packages are tailored to your vehicle. Contact us for a personalised quote.
         </p>
       </section>
 
