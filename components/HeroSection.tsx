@@ -3,22 +3,18 @@
 import Image from "next/image";
 import QuotePanel from "./QuotePanel";
 
+function scrollTo(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    const top = el.getBoundingClientRect().top + window.scrollY - 4;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+}
+
 export default function HeroSection() {
-  function scrollToServices() {
-    const el = document.getElementById("services");
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 4;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-  }
-
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
   return (
     <section style={{ position: "relative" }}>
-      {/* Hero baked image */}
+      {/* Hero baked image — unchanged */}
       <Image
         src="/assets3/hero.png"
         alt="DiamondLux Auto — luxury cars and a superyacht at golden hour"
@@ -29,28 +25,25 @@ export default function HeroSection() {
         sizes="100vw"
       />
 
-      {/* ── Hotspots + quote panel overlay (always inside ScaleStage) ── */}
+      {/* ── Transparent hotspot overlays over the baked nav ── */}
       <div>
-        <button onClick={scrollToTop}  aria-label="Home"            style={hs(32,  10, 272, 104)} />
-        <button onClick={scrollToTop}  aria-label="Home"            style={hs(386, 38, 44,  34)}  />
-        <button onClick={scrollToServices} aria-label="Services"    style={hs(460, 38, 70,  34)}  />
-        <button aria-label="Packages"                               style={hs(558, 38, 76,  34)}  />
-        <button aria-label="Our Work"                               style={hs(662, 38, 78,  34)}  />
-        <button aria-label="About Us"                               style={hs(768, 38, 78,  34)}  />
-        <button aria-label="Contact"                                style={hs(870, 38, 72,  34)}  />
-        <button onClick={scrollToTop}  aria-label="Book Appointment" style={hs(1024,30, 234, 48)} />
+        <button onClick={() => scrollTo("hero")}         aria-label="Home"             style={hs(32,  10, 272, 104)} />
+        <button onClick={() => scrollTo("hero")}         aria-label="Home"             style={hs(386, 38, 44,  34)}  />
+        <button onClick={() => scrollTo("services")}     aria-label="Services"         style={hs(460, 38, 70,  34)}  />
+        <button onClick={() => scrollTo("packages")}     aria-label="Packages"         style={hs(558, 38, 76,  34)}  />
+        <button onClick={() => scrollTo("our-work")}     aria-label="Our Work"         style={hs(662, 38, 78,  34)}  />
+        <button onClick={() => scrollTo("about")}        aria-label="About Us"         style={hs(768, 38, 78,  34)}  />
+        <button onClick={() => scrollTo("contact")}      aria-label="Contact"          style={hs(870, 38, 72,  34)}  />
+        <button onClick={() => scrollTo("contact")}      aria-label="Book Appointment" style={hs(1024,30, 234, 48)}  />
 
         <div style={{ position: "absolute", top: 92, left: 988, width: 235 }}>
           <QuotePanel />
         </div>
       </div>
-
-
     </section>
   );
 }
 
-/** Transparent absolute hotspot button style */
 function hs(left: number, top: number, width: number, height: number): React.CSSProperties {
   return {
     position: "absolute",

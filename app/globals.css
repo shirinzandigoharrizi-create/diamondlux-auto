@@ -11,6 +11,16 @@
   --gray-500: #8a8a86;
 }
 
+/* Sub-page nav: hide mobile menu button on desktop, show on mobile */
+.dlx-desktop-nav { display: flex; }
+.dlx-mobile-btn  { display: none; }
+.dlx-mobile-menu { display: none; }
+@media (max-width: 860px) {
+  .dlx-desktop-nav { display: none !important; }
+  .dlx-mobile-btn  { display: block !important; }
+  .dlx-mobile-menu { display: block !important; }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -37,31 +47,32 @@ input:focus {
 .dlx-svc {
   transition: all 0.26s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.dlx-svc:hover {
-  transform: translateY(-4px);
-  border-color: rgba(201, 162, 39, 0.55) !important;
-  box-shadow: 0 16px 36px rgba(0,0,0,0.5), 0 0 24px rgba(201,162,39,0.13) !important;
-}
-
 .dlx-learn {
   transition: color 0.24s;
 }
-.dlx-learn:hover {
-  color: #E3C04A !important;
-}
-
 .dlx-outline {
   transition: all 0.24s;
 }
-.dlx-outline:hover {
-  border-color: #E3C04A !important;
-  color: #E3C04A !important;
-}
-
 .dlx-gold {
   transition: all 0.24s;
 }
-.dlx-gold:hover {
-  filter: brightness(1.06);
-  box-shadow: 0 0 26px rgba(201, 162, 39, 0.4) !important;
+
+/* Hover effects only on devices with a real pointer (mouse/trackpad) — not touch screens */
+@media (hover: hover) {
+  .dlx-svc:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 162, 39, 0.55) !important;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.5), 0 0 24px rgba(201,162,39,0.13) !important;
+  }
+  .dlx-learn:hover {
+    color: #E3C04A !important;
+  }
+  .dlx-outline:hover {
+    border-color: #E3C04A !important;
+    color: #E3C04A !important;
+  }
+  .dlx-gold:hover {
+    filter: brightness(1.06);
+    box-shadow: 0 0 26px rgba(201, 162, 39, 0.4) !important;
+  }
 }
