@@ -117,8 +117,8 @@ export default function ServicesSection() {
       id="services"
       style={{ position: "relative", background: "#0A0A0A", paddingBottom: "40px" }}
     >
-      {/* ── Desktop/Tablet layout (inside 1280px ScaleStage) ── */}
-      <div className="hidden sm:block" style={{ paddingTop: "12px", paddingLeft: "28px", paddingRight: "28px" }}>
+      {/* ── Services layout (always inside ScaleStage) ── */}
+      <div style={{ paddingTop: "12px", paddingLeft: "28px", paddingRight: "28px" }}>
         <div style={{ maxWidth: "953px" }}>
           <div
             style={{
@@ -166,35 +166,7 @@ export default function ServicesSection() {
         </div>
       </div>
 
-      {/* ── Mobile only layout ── */}
-      <div className="sm:hidden" style={{ padding: "32px 16px 0" }}>
-        <div
-          style={{
-            textAlign: "center",
-            fontFamily: "var(--font-jost), sans-serif",
-            fontSize: "18px",
-            fontWeight: 500,
-            letterSpacing: "0.22em",
-            color: "#D4AF37",
-            textTransform: "uppercase",
-            marginBottom: "20px",
-          }}
-        >
-          Our Services
-        </div>
-        {/* 1 col on mobile, 2 cols on tablet */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(min(280px, 100%), 1fr))",
-            gap: "16px",
-          }}
-        >
-          {services.map((svc) => (
-            <ServiceCard key={svc.title} svc={svc} imgHeight={160} />
-          ))}
-        </div>
-      </div>
+
     </section>
   );
 }
