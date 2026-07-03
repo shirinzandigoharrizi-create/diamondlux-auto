@@ -1,8 +1,8 @@
 const stats = [
   { value: "1,200+", label: "Vehicles Detailed" },
   { value: "98%",    label: "Client Satisfaction" },
-  { value: "8 yrs",  label: "In Business" },
   { value: "4.9 ★",  label: "Average Rating" },
+  { value: "5",      label: "Specialist Services" },
 ];
 
 const gallery = [

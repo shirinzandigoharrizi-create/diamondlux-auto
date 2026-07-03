@@ -43,7 +43,6 @@ export default function AboutSectionHome() {
           }}
         >
           {[
-            { value: "8+",     label: "Years in Business",   sub: "Est. 2016" },
             { value: "1,200+", label: "Vehicles Detailed",   sub: "And counting" },
             { value: "98%",    label: "Client Satisfaction",  sub: "5-star average" },
             { value: "5",      label: "Specialist Services",  sub: "Under one roof" },
