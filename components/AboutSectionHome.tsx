@@ -152,10 +152,9 @@ export default function AboutSectionHome() {
               margin: "0 0 36px",
             }}
           >
-            Over eight years and more than 1,200 vehicles, our methods have
-            evolved — but our standard has never wavered. Every job leaves our
-            studio looking as close to factory-perfect as the vehicle allows.
-            Sometimes better.
+            Across more than 1,200 vehicles, our methods have evolved — but our
+            standard has never wavered. Every job leaves our studio looking as
+            close to factory-perfect as the vehicle allows. Sometimes better.
           </p>
 
           {/* Values 2×2 mini grid */}

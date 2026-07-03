@@ -34,7 +34,7 @@ const packages = [
       "Clay bar decontamination",
       "Single-stage paint correction",
       "Leather clean & condition",
-      "Interior deep steam clean",
+      "Interior surface conditioning & rejuvenation",
       "Odor neutralization",
       "6-month sealant protection",
       "Engine bay wipe-down",

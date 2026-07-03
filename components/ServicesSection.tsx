@@ -4,7 +4,7 @@ const services = [
   {
     img: "/assets3/card-interior.png",
     title: "Interior Detailing",
-    desc: "Deep cleaning, conditioning & interior protection.",
+    desc: "Interior restoration, leather conditioning & surface care.",
   },
   {
     img: "/assets3/card-exterior.png",

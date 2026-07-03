@@ -25,7 +25,7 @@ const tiers = [
       "Clay bar decontamination",
       "Single-stage paint correction",
       "Leather clean & condition",
-      "Interior deep steam clean",
+      "Interior surface conditioning & rejuvenation",
       "6-month sealant protection",
       "Odor neutralization",
       "Engine bay wipe",

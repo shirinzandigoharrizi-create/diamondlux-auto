@@ -53,7 +53,7 @@ const team = [
   {
     name: "Tyler Okafor",
     role: "PPF & Wrap Technician",
-    bio: "XPEL-certified with eight years of precision film work on everything from daily drivers to supercars.",
+    bio: "XPEL-certified specialist in precision film work on everything from daily drivers to supercars.",
     initial: "T",
   },
   {
@@ -98,7 +98,7 @@ export default function AboutPage() {
             lineHeight: 1.9,
             margin: 0,
           }}>
-            A decade of dedication to the highest standard of automotive care.
+            An unwavering dedication to the highest standard of automotive care.
           </p>
           <div style={{ width: "40px", height: "1px", background: "#D4AF37", margin: "28px auto 0" }} />
         </div>
@@ -201,7 +201,7 @@ export default function AboutPage() {
             lineHeight: 1.9,
             margin: 0,
           }}>
-            Over eight years and more than 1,200 vehicles, our methods have evolved — but our standard has never wavered. Every job leaves our studio looking as close to factory-perfect as the vehicle's condition allows. Sometimes better.
+            Across more than 1,200 vehicles, our methods have evolved — but our standard has never wavered. Every job leaves our studio looking as close to factory-perfect as the vehicle's condition allows. Sometimes better.
           </p>
         </div>
       </section>
