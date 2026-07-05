@@ -9,6 +9,7 @@
   --cream-50: #F2EFE9;
   --gray-400: #9A9A9A;
   --gray-500: #8a8a86;
+  --ink-900: #1A1407;
 }
 
 /* Sub-page nav: hide mobile menu button on desktop, show on mobile */
@@ -74,5 +75,100 @@ input:focus {
   .dlx-gold:hover {
     filter: brightness(1.06);
     box-shadow: 0 0 26px rgba(201, 162, 39, 0.4) !important;
+  }
+}
+
+/* ElevenLabs conversational widget */
+.dlx-elw-trigger,
+.dlx-elw-iconbtn,
+.dlx-elw-begin,
+.dlx-elw-send,
+.dlx-elw-toggle {
+  background: transparent;
+  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  .dlx-elw-trigger:hover,
+  .dlx-elw-iconbtn:hover {
+    border-color: var(--gold-400) !important;
+    box-shadow: 0 0 22px color-mix(in srgb, var(--gold-400) 35%, transparent);
+  }
+  .dlx-elw-begin:hover {
+    filter: brightness(1.08);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--gold-400) 40%, transparent);
+  }
+  .dlx-elw-send:hover {
+    color: var(--gold-300) !important;
+  }
+}
+
+.dlx-elw-orb {
+  animation: dlx-elw-breathe 3.2s ease-in-out infinite;
+}
+.dlx-elw-orb.dlx-elw-orb--listening {
+  animation: dlx-elw-breathe 1.6s ease-in-out infinite;
+}
+.dlx-elw-orb.dlx-elw-orb--speaking {
+  animation: dlx-elw-breathe 0.9s ease-in-out infinite;
+}
+
+@keyframes dlx-elw-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.dlx-elw-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid var(--gold-400);
+  opacity: 0;
+  animation: dlx-elw-ripple 3.2s ease-out infinite;
+}
+.dlx-elw-ring--2 { animation-delay: 1.1s; }
+.dlx-elw-ring--3 { animation-delay: 2.2s; }
+
+.dlx-elw-orb--listening .dlx-elw-ring {
+  animation-duration: 1.7s;
+  border-color: var(--gold-300);
+}
+.dlx-elw-orb--listening .dlx-elw-ring--2 { animation-delay: 0.55s; }
+.dlx-elw-orb--listening .dlx-elw-ring--3 { animation-delay: 1.1s; }
+
+.dlx-elw-orb--speaking .dlx-elw-ring {
+  animation-duration: 1.1s;
+  border-color: var(--gold-500);
+}
+.dlx-elw-orb--speaking .dlx-elw-ring--2 { animation-delay: 0.36s; }
+.dlx-elw-orb--speaking .dlx-elw-ring--3 { animation-delay: 0.72s; }
+
+@keyframes dlx-elw-ripple {
+  0% { transform: scale(0.85); opacity: 0.55; }
+  100% { transform: scale(1.85); opacity: 0; }
+}
+
+.dlx-elw-bubble-in {
+  animation: dlx-elw-bubble-in 0.22s ease-out;
+}
+@keyframes dlx-elw-bubble-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .dlx-elw-panel {
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: min(82vh, 620px) !important;
+    max-height: 82vh !important;
+    border-radius: 18px 18px 0 0 !important;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .dlx-elw-trigger-wrap {
+    right: 16px !important;
+    bottom: 16px !important;
   }
 }
