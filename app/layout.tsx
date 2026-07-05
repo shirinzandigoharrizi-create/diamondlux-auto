@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ElevenLabsWidget from "@/components/ElevenLabsWidget";
 
 export const metadata: Metadata = {
   title: "DiamondLux Auto — Luxury Auto Detailing",
@@ -21,7 +22,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-[#0A0A0A]">{children}</body>
+      <body className="min-h-screen bg-[#0A0A0A]">
+        {children}
+        <ElevenLabsWidget />
+      </body>
     </html>
   );
 }
