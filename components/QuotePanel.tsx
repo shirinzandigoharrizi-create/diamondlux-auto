@@ -25,10 +25,8 @@ export default function QuotePanel() {
     <aside
       id="quick-quote-panel"
       style={{
-        background: "linear-gradient(180deg,#15130f,#0c0b09)",
-        border: "1px solid rgba(201,162,39,0.40)",
+        background: "#0c0b09",
         borderRadius: "12px",
-        boxShadow: "0 24px 56px rgba(0,0,0,0.55)",
         padding: "26px 16px 15px",
         fontFamily: "var(--font-jost), Arial, sans-serif",
       }}

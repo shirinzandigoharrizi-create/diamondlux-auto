@@ -14,7 +14,7 @@ function scrollTo(id: string) {
 export default function HeroSection() {
   return (
     <section style={{ position: "relative" }}>
-      {/* Hero baked image — unchanged */}
+      {/* Hero baked image — unchanged (Book Appointment button removed from the artwork) */}
       <Image
         src="/assets3/hero.png"
         alt="DiamondLux Auto — luxury cars and a superyacht at golden hour"
@@ -35,7 +35,7 @@ export default function HeroSection() {
         <button onClick={() => scrollTo("about")}        aria-label="About Us"         style={hs(768, 38, 78,  34)}  />
         <button onClick={() => scrollTo("contact")}      aria-label="Contact"          style={hs(870, 38, 72,  34)}  />
 
-        {/* Get a Quick Quote — expanded upward to fill the space of the removed top CTA block */}
+        {/* Get a Quick Quote — top-right, vertical card, in the space of the removed Book Appointment block */}
         <div style={{ position: "absolute", top: 30, left: 1010, width: 235 }}>
           <QuotePanel />
         </div>

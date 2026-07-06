@@ -161,6 +161,8 @@ export default function ServicesSection() {
             alt=""
             width={170}
             height={170}
+            loading="eager"
+            unoptimized
             style={{ height: "auto" }}
           />
         </div>
