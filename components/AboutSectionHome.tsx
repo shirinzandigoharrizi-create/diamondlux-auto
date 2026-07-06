@@ -5,13 +5,6 @@ const values = [
   { label: "Discretion", desc: "Your vehicle, your privacy. Always handled with care." },
 ];
 
-const team = [
-  { name: "Marcus Bell",   role: "Founder & Lead Detailer", i: "M" },
-  { name: "Leila Santos",  role: "Ceramic Coating Specialist", i: "L" },
-  { name: "Tyler Okafor",  role: "PPF & Wrap Technician", i: "T" },
-  { name: "Priya Sharma",  role: "Client Experience Manager", i: "P" },
-];
-
 export default function AboutSectionHome() {
   return (
     <section
@@ -30,7 +23,7 @@ export default function AboutSectionHome() {
           gap: "80px",
           alignItems: "center",
           maxWidth: "1152px",
-          margin: "0 auto 88px",
+          margin: "0 auto",
         }}
       >
         {/* Stats panel — CSS only */}
@@ -201,88 +194,6 @@ export default function AboutSectionHome() {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Team row */}
-      <div style={{ maxWidth: "1152px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <h3
-            style={{
-              fontFamily: "'Jost', sans-serif",
-              fontSize: "11px",
-              fontWeight: 500,
-              letterSpacing: "0.25em",
-              color: "#D4AF37",
-              textTransform: "uppercase",
-              margin: 0,
-            }}
-          >
-            The Team
-          </h3>
-        </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "20px",
-          }}
-        >
-          {team.map((m) => (
-            <div
-              key={m.name}
-              style={{
-                background: "#0d0d0d",
-                border: "1px solid rgba(255,255,255,0.06)",
-                borderRadius: "3px",
-                padding: "28px 20px",
-                textAlign: "center",
-              }}
-            >
-              <div
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  borderRadius: "50%",
-                  background: "rgba(212,175,55,0.07)",
-                  border: "1px solid rgba(212,175,55,0.2)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto 16px",
-                  fontFamily: "'Bodoni Moda', serif",
-                  fontSize: "24px",
-                  color: "#D4AF37",
-                }}
-              >
-                {m.i}
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Bodoni Moda', serif",
-                  fontSize: "17px",
-                  fontWeight: 500,
-                  color: "#F2EFE9",
-                  marginBottom: "6px",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                {m.name}
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Jost', sans-serif",
-                  fontSize: "10px",
-                  fontWeight: 500,
-                  letterSpacing: "0.16em",
-                  color: "#D4AF37",
-                  textTransform: "uppercase",
-                }}
-              >
-                {m.role}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

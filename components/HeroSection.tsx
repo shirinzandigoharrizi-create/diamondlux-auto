@@ -34,9 +34,9 @@ export default function HeroSection() {
         <button onClick={() => scrollTo("our-work")}     aria-label="Our Work"         style={hs(662, 38, 78,  34)}  />
         <button onClick={() => scrollTo("about")}        aria-label="About Us"         style={hs(768, 38, 78,  34)}  />
         <button onClick={() => scrollTo("contact")}      aria-label="Contact"          style={hs(870, 38, 72,  34)}  />
-        <button onClick={() => scrollTo("contact")}      aria-label="Book Appointment" style={hs(1024,30, 234, 48)}  />
 
-        <div style={{ position: "absolute", top: 92, left: 988, width: 235 }}>
+        {/* Get a Quick Quote — expanded upward to fill the space of the removed top CTA block */}
+        <div style={{ position: "absolute", top: 30, left: 1010, width: 235 }}>
           <QuotePanel />
         </div>
       </div>

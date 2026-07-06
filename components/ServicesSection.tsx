@@ -56,7 +56,7 @@ function ServiceCard({ svc, imgHeight }: { svc: typeof services[0]; imgHeight: n
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
-          padding: "16px 14px",
+          padding: "12px 14px",
           flex: 1,
         }}
       >
@@ -73,7 +73,7 @@ function ServiceCard({ svc, imgHeight }: { svc: typeof services[0]; imgHeight: n
         </div>
         <div
           style={{
-            marginTop: "9px",
+            marginTop: "7px",
             fontSize: "12px",
             lineHeight: 1.5,
             color: "#9A9A9A",
@@ -86,7 +86,7 @@ function ServiceCard({ svc, imgHeight }: { svc: typeof services[0]; imgHeight: n
           className="dlx-learn"
           style={{
             marginTop: "auto",
-            paddingTop: "15px",
+            paddingTop: "10px",
             display: "inline-flex",
             alignItems: "center",
             gap: "8px",
@@ -115,10 +115,10 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      style={{ position: "relative", background: "#0A0A0A", paddingBottom: "40px" }}
+      style={{ position: "relative", background: "#0A0A0A", paddingBottom: "16px" }}
     >
       {/* ── Services layout (always inside ScaleStage) ── */}
-      <div style={{ paddingTop: "12px", paddingLeft: "28px", paddingRight: "28px" }}>
+      <div style={{ paddingTop: "16px", paddingLeft: "28px", paddingRight: "28px" }}>
         <div style={{ maxWidth: "953px" }}>
           <div
             style={{
@@ -137,12 +137,12 @@ export default function ServicesSection() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(5, 1fr)",
-              gap: "17px",
-              marginTop: "13px",
+              gap: "14px",
+              marginTop: "10px",
             }}
           >
             {services.map((svc) => (
-              <ServiceCard key={svc.title} svc={svc} imgHeight={108} />
+              <ServiceCard key={svc.title} svc={svc} imgHeight={76} />
             ))}
           </div>
         </div>
@@ -165,8 +165,6 @@ export default function ServicesSection() {
           />
         </div>
       </div>
-
-
     </section>
   );
 }

@@ -7,6 +7,7 @@ export default function QuotePanel() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [details, setDetails] = useState("");
 
   function handleSubmit() {
     setSubmitted(true);
@@ -17,16 +18,18 @@ export default function QuotePanel() {
     setName("");
     setEmail("");
     setPhone("");
+    setDetails("");
   }
 
   return (
     <aside
+      id="quick-quote-panel"
       style={{
         background: "linear-gradient(180deg,#15130f,#0c0b09)",
         border: "1px solid rgba(201,162,39,0.40)",
         borderRadius: "12px",
         boxShadow: "0 24px 56px rgba(0,0,0,0.55)",
-        padding: "15px 16px",
+        padding: "26px 16px 15px",
         fontFamily: "var(--font-jost), Arial, sans-serif",
       }}
     >
@@ -81,6 +84,7 @@ export default function QuotePanel() {
         </div>
       ) : (
         <div>
+          <div style={{ width: "32px", height: "1px", background: "#D4AF37", margin: "0 auto 14px" }} />
           <div
             style={{
               textAlign: "center",
@@ -108,61 +112,6 @@ export default function QuotePanel() {
             Upload photos and get a<br />personalized quote.
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "9px", marginBottom: "11px" }}>
-            <button
-              className="dlx-outline"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "6px",
-                background: "rgba(201,162,39,0.04)",
-                border: "1px solid rgba(201,162,39,0.5)",
-                color: "#D4AF37",
-                fontFamily: "var(--font-jost), sans-serif",
-                fontSize: "11px",
-                fontWeight: 500,
-                letterSpacing: "0.04em",
-                textTransform: "uppercase",
-                padding: "9px 0",
-                borderRadius: "7px",
-                cursor: "pointer",
-                whiteSpace: "nowrap",
-              }}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg>
-              Chat
-            </button>
-            <button
-              className="dlx-outline"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "6px",
-                background: "rgba(201,162,39,0.04)",
-                border: "1px solid rgba(201,162,39,0.5)",
-                color: "#D4AF37",
-                fontFamily: "var(--font-jost), sans-serif",
-                fontSize: "11px",
-                fontWeight: 500,
-                letterSpacing: "0.02em",
-                textTransform: "uppercase",
-                padding: "9px 0",
-                borderRadius: "7px",
-                cursor: "pointer",
-                whiteSpace: "nowrap",
-              }}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 1 1 16.1-3.8z" />
-              </svg>
-              WhatsApp
-            </button>
-          </div>
-
           <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
             <div
               style={{
@@ -181,6 +130,7 @@ export default function QuotePanel() {
                 <circle cx="12" cy="7" r="4" />
               </svg>
               <input
+                id="quick-quote-name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Full Name"
@@ -288,6 +238,42 @@ export default function QuotePanel() {
                   You can upload up to 20 images
                 </div>
               </div>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "9px",
+                background: "#0a0a08",
+                border: "1px solid rgba(201,162,39,0.30)",
+                borderRadius: "8px",
+                padding: "9px 11px",
+              }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: "2px", flexShrink: 0 }}>
+                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" />
+                <path d="M9 13h6M9 17h6" />
+              </svg>
+              <textarea
+                value={details}
+                onChange={(e) => setDetails(e.target.value)}
+                placeholder="Describe your vehicle and what you need"
+                rows={2}
+                style={{
+                  flex: 1,
+                  minWidth: 0,
+                  background: "transparent",
+                  border: "none",
+                  outline: "none",
+                  resize: "none",
+                  color: "#F2EFE9",
+                  fontFamily: "var(--font-jost), sans-serif",
+                  fontSize: "12.5px",
+                  lineHeight: 1.5,
+                }}
+              />
             </div>
           </div>
 

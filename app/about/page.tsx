@@ -37,33 +37,6 @@ const certifications = [
   { name: "3M Pro", body: "Authorized 3M Window Film Installer" },
 ];
 
-const team = [
-  {
-    name: "Marcus Bell",
-    role: "Founder & Lead Detailer",
-    bio: "15 years refining vehicles for collectors, dealerships, and motorsport teams across North America.",
-    initial: "M",
-  },
-  {
-    name: "Leila Santos",
-    role: "Ceramic Coating Specialist",
-    bio: "Gtechniq-accredited and obsessed with perfect surface chemistry. Responsible for every coating application.",
-    initial: "L",
-  },
-  {
-    name: "Tyler Okafor",
-    role: "PPF & Wrap Technician",
-    bio: "XPEL-certified specialist in precision film work on everything from daily drivers to supercars.",
-    initial: "T",
-  },
-  {
-    name: "Priya Sharma",
-    role: "Client Experience Manager",
-    bio: "Your first and last point of contact. Priya ensures every client interaction exceeds expectation.",
-    initial: "P",
-  },
-];
-
 export default function AboutPage() {
   return (
     <main style={{ background: "#0A0A0A", minHeight: "100vh" }}>
@@ -264,93 +237,6 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section style={{ maxWidth: "1280px", margin: "0 auto", padding: "80px 40px" }}>
-        <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <div style={{ width: "32px", height: "1px", background: "#D4AF37", margin: "0 auto 20px" }} />
-          <h2 style={{
-            fontFamily: "'Bodoni Moda', serif",
-            fontSize: "clamp(26px, 3.5vw, 38px)",
-            fontWeight: 500,
-            color: "#F2EFE9",
-            letterSpacing: "0.06em",
-            margin: "0 0 16px",
-          }}>
-            The Team
-          </h2>
-          <p style={{
-            fontFamily: "'Jost', sans-serif",
-            fontSize: "13px",
-            fontWeight: 300,
-            color: "#7a7a7a",
-            margin: 0,
-          }}>
-            Small on purpose. Every member is a specialist.
-          </p>
-        </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}>
-          {team.map((member) => (
-            <div key={member.name} style={{
-              background: "#0d0d0d",
-              border: "1px solid rgba(255,255,255,0.06)",
-              borderRadius: "3px",
-              padding: "32px 24px",
-              textAlign: "center",
-            }}>
-              {/* Avatar */}
-              <div style={{
-                width: "72px",
-                height: "72px",
-                borderRadius: "50%",
-                background: "rgba(212,175,55,0.08)",
-                border: "1px solid rgba(212,175,55,0.25)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 20px",
-                fontFamily: "'Bodoni Moda', serif",
-                fontSize: "28px",
-                color: "#D4AF37",
-              }}>
-                {member.initial}
-              </div>
-              <div style={{
-                fontFamily: "'Bodoni Moda', serif",
-                fontSize: "18px",
-                fontWeight: 500,
-                color: "#F2EFE9",
-                marginBottom: "6px",
-                letterSpacing: "0.03em",
-              }}>
-                {member.name}
-              </div>
-              <div style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: "10px",
-                fontWeight: 500,
-                letterSpacing: "0.18em",
-                color: "#D4AF37",
-                textTransform: "uppercase",
-                marginBottom: "16px",
-              }}>
-                {member.role}
-              </div>
-              <p style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: "12px",
-                fontWeight: 300,
-                color: "#7a7a7a",
-                lineHeight: 1.75,
-                margin: 0,
-              }}>
-                {member.bio}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
 
