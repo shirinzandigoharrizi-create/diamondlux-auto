@@ -139,8 +139,7 @@ export default function Footer() {
           <div style={{ color: "#7a7a7a", fontSize: "13px", fontFamily: "'Jost', sans-serif", fontWeight: 300, lineHeight: 2 }}>
             <div>1234 Luxury Drive, Suite 100</div>
             <div>Beverly Hills, CA 90210</div>
-            <div style={{ marginTop: "12px" }}>+1 (555) 123-4567</div>
-            <div>info@diamondluxauto.com</div>
+            <div style={{ marginTop: "12px" }}>info@diamondluxauto.com</div>
             <div style={{ marginTop: "16px", color: "#9A9A9A", fontSize: "12px", letterSpacing: "0.05em" }}>HOURS</div>
             <div>Mon – Fri: 8 am – 6 pm</div>
             <div>Saturday: 9 am – 5 pm</div>

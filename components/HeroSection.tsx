@@ -21,6 +21,7 @@ export default function HeroSection() {
         width={1280}
         height={720}
         priority
+        quality={100}
         style={{ display: "block", width: "100%", height: "auto" }}
         sizes="100vw"
       />

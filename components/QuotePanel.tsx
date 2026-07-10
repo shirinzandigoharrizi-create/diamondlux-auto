@@ -1,24 +1,97 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+
+const MAX_PHOTOS = 20;
+const MAX_TOTAL_BYTES = 4 * 1024 * 1024; // keep the JSON payload comfortably within serverless body limits
+
+function readFileAsDataUrl(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file);
+  });
+}
 
 export default function QuotePanel() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [details, setDetails] = useState("");
+  const [photos, setPhotos] = useState<File[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  function handleSubmit() {
-    setSubmitted(true);
+  function handlePhotosSelected(fileList: FileList | null) {
+    if (!fileList) return;
+    const files = Array.from(fileList).slice(0, MAX_PHOTOS);
+    setError(null);
+    setPhotos(files);
+  }
+
+  async function handleSubmit() {
+    if (submitting) return;
+
+    if (!name.trim() || !email.trim()) {
+      setError("Please enter your name and email.");
+      return;
+    }
+
+    const totalBytes = photos.reduce((sum, file) => sum + file.size, 0);
+    if (totalBytes > MAX_TOTAL_BYTES) {
+      setError("Your photos are too large. Please upload fewer or smaller images.");
+      return;
+    }
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const encodedPhotos = await Promise.all(
+        photos.map(async (file) => ({
+          filename: file.name,
+          contentType: file.type || "application/octet-stream",
+          dataUrl: await readFileAsDataUrl(file),
+        }))
+      );
+
+      const response = await fetch("/api/quick-quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: name,
+          phone,
+          email,
+          description: details,
+          photos: encodedPhotos,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Something went wrong. Please try again.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   function resetForm() {
     setSubmitted(false);
+    setError(null);
     setName("");
     setEmail("");
     setPhone("");
     setDetails("");
+    setPhotos([]);
+    if (fileInputRef.current) fileInputRef.current.value = "";
   }
 
   return (
@@ -212,6 +285,7 @@ export default function QuotePanel() {
             </div>
 
             <div
+              onClick={() => fileInputRef.current?.click()}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -223,6 +297,14 @@ export default function QuotePanel() {
                 cursor: "pointer",
               }}
             >
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={(e) => handlePhotosSelected(e.target.files)}
+                style={{ display: "none" }}
+              />
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                 <path d="M17 8l-5-5-5 5" />
@@ -230,10 +312,12 @@ export default function QuotePanel() {
               </svg>
               <div>
                 <div style={{ fontSize: "11.5px", color: "#E6E2D9", fontWeight: 500 }}>
-                  Upload Photos (Max 20 photos)
+                  {photos.length > 0
+                    ? `${photos.length} photo${photos.length === 1 ? "" : "s"} selected`
+                    : "Upload Photos (Max 20 photos)"}
                 </div>
                 <div style={{ fontSize: "10px", color: "#8a8a86", fontWeight: 300, marginTop: "1px" }}>
-                  You can upload up to 20 images
+                  {photos.length > 0 ? "Tap to change your selection" : "You can upload up to 20 images"}
                 </div>
               </div>
             </div>
@@ -275,8 +359,26 @@ export default function QuotePanel() {
             </div>
           </div>
 
+          {error && (
+            <div
+              style={{
+                marginTop: "10px",
+                background: "rgba(200,60,50,0.1)",
+                border: "1px solid rgba(200,60,50,0.35)",
+                borderRadius: "8px",
+                padding: "8px 11px",
+                color: "#e08a82",
+                fontSize: "11.5px",
+                lineHeight: 1.5,
+              }}
+            >
+              {error}
+            </div>
+          )}
+
           <button
             onClick={handleSubmit}
+            disabled={submitting}
             className="dlx-gold"
             style={{
               width: "100%",
@@ -291,10 +393,11 @@ export default function QuotePanel() {
               textTransform: "uppercase",
               padding: "11px 0",
               borderRadius: "8px",
-              cursor: "pointer",
+              cursor: submitting ? "default" : "pointer",
+              opacity: submitting ? 0.7 : 1,
             }}
           >
-            Request My Quote
+            {submitting ? "Submitting…" : "Request My Quote"}
           </button>
 
           <div

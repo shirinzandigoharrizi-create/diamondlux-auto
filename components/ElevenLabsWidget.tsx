@@ -61,8 +61,11 @@ function ElevenLabsWidgetInner() {
     onMessage: ({ message, role, event_id }) => {
       setMessages((prev) => [...prev, { id: `${event_id ?? Date.now()}-${prev.length}`, role, text: message }]);
     },
-    onError: (message) => {
-      console.error("ElevenLabs conversation error:", message);
+    onError: (message, context) => {
+      console.error("ElevenLabs conversation error:", message, context);
+    },
+    onDisconnect: (details) => {
+      console.warn("ElevenLabs conversation disconnected:", details);
     },
   });
 

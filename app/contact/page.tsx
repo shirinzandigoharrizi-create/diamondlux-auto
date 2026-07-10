@@ -145,7 +145,6 @@ export default function ContactPage() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 {[
-                  { icon: "📞", label: "+1 (555) 123-4567" },
                   { icon: "✉️", label: "info@diamondluxauto.com" },
                 ].map(({ icon, label }) => (
                   <div key={label} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
